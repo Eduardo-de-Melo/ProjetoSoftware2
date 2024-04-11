@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Define a altura do contêiner para preencher a tela inteira verticalmente */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    text-align: center;
+    margin-right: 10px; 
+}
+
+.label-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    margin-top: -10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login {
+    background-color: #873286;
+    color: #fff;
+}
+
+.btn-register {
+    margin-top: -15px;
+    color: #c700c7;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+body {
+    background-color: #d3bbff;
+}
+
+.logo {
+    width: 250px;
+    height: auto;
+    margin-top: -200px;
+}

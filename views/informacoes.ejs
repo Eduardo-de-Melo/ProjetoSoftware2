@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios Marcados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles_horarios_marcados.css">
+    <link rel="stylesheet" href="/styles_inform.css">
+</head>
+<body>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="titulo">Informações do Usuário</h2>
+        <div class="container">
+            <p class="inform-text">Nome: <span id="name" class="inform-text"></span></p>
+            <p class="inform-text">Telefone: <span id="phone" class="inform-text"></span></p>
+        </div>
+    
+        <script>
+            // Recupera as informações de usuário do localStorage
+            const name = localStorage.getItem('username');
+            const phone = localStorage.getItem('phone');
+            
+            // Exibe as informações na página
+            document.getElementById('name').textContent = name;
+            document.getElementById('phone').textContent = phone;
+        </script>
+    </div>
+</div>
+
+<!-- Botão para retornar ao menu principal -->
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6 text-center">
+        <a href="/menu_principal" class="btn btn-primary">Voltar ao Menu Principal</a>
+    </div>
+</div>
+</body>
+</html>

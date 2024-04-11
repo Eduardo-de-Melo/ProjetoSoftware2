@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dias</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles_dias.css">
+    <script src="public\scripts.js"></script>
+</head>
+<body>
+    <div class="row align-items-center">
+        <div class="col-6">
+            <!-- Foto do usuário e nome -->
+            <div class="d-flex align-items-center">
+                <div class="user-photo"></div>
+                <!-- Nome de usuário -->
+                <div class="user-name ml-2"> <a href="/informacoes" class="nome_link"><span id="name"></span> </a></div>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <!-- Botão de configurações -->
+            <a href="/configuracoes" class="btn btn-outline-secondary settings">Configurações</a>
+        </div>
+    </div>
+        <!-- Linha separadora -->
+        <hr>
+        <!-- Parte principal da página -->
+        <div class="titulo">Escolha o dia da semana</div>
+        <div class="row justify-content-center">
+            <div>
+                <!-- Retângulos dos dias da semana -->
+                <a href="/cabeleireiros" class="day-link" onclick="salvarDia('Segunda')">
+                    <div class="day-rectangle">
+                        <span class="day-text">Segunda</span>
+                    </div>
+                </a>
+                <a href="/cabeleireiros" class="day-link" onclick="salvarDia('Terça')">
+                    <div class="day-rectangle">
+                        <span class="day-text">Terça</span>
+                    </div>
+                </a>
+                <a href="/cabeleireiros" class="day-link" onclick="salvarDia('Quarta')">
+                    <div class="day-rectangle">
+                        <span class="day-text">Quarta</span>
+                    </div>
+                </a>
+                <a href="/cabeleireiros" class="day-link" onclick="salvarDia('Quinta')">
+                    <div class="day-rectangle">
+                        <span class="day-text">Quinta</span>
+                    </div>
+                </a>
+                <a href="/cabeleireiros" class="day-link" onclick="salvarDia('Sexta')">
+                    <div class="day-rectangle">
+                        <span class="day-text">Sexta</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row justify-content-center mt-4 menu">
+        <div class="col-md-12 text-center">
+            <a href="/menu_principal" class="btn btn-primary menu">Menu Principal</a>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Função para salvar o dia da semana escolhido no localStorage
+        function salvarDia(dia) {
+            localStorage.setItem('diaEscolhido', dia);
+        }
+
+        const name = localStorage.getItem('username');
+        document.getElementById('name').textContent = name;
+    </script>
+
+</body>
+</html>

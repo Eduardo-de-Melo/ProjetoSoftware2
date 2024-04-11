@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles_horarios.css">
+    <script src="public\scripts.js"></script>
+</head>
+<body>
+    <div class="row align-items-center">
+        <div class="col-6">
+            <!-- Foto do usuário e nome -->
+            <div class="d-flex align-items-center">
+                <div class="user-photo"></div>
+                <!-- Nome de usuário -->
+                <div class="user-name ml-2"> <a href="/informacoes" class="nome_link"><span id="name"></span> </a></div>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <!-- Botão de configurações -->
+            <a href="/configuracoes" class="btn btn-outline-secondary settings">Configurações</a>
+        </div>
+    </div>
+        <!-- Linha separadora -->
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <div class="titulo">Horarios</div>
+            </div>
+            <form action="/forma_pagamento" id="horariosForm">
+                <div class="row justify-content-center">
+                    <!-- Checkboxes -->
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular8' onclick="salvarHorario('8:00')">
+                        <label for='Angular8' class="option">8:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular9' onclick="salvarHorario('9:00')">
+                        <label for='Angular9' class="option">9:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular10' onclick="salvarHorario('10:00')">
+                        <label for='Angular10' class="option">10:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular11' onclick="salvarHorario('11:00')">
+                        <label for='Angular11' class="option">11:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular13' onclick="salvarHorario('13:00')">
+                        <label for='Angular13' class="option">13:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular14' onclick="salvarHorario('14:00')">
+                        <label for='Angular14' class="option">14:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular15' onclick="salvarHorario('15:00')">
+                        <label for='Angular15' class="option">15:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular16' onclick="salvarHorario('16:00')">
+                        <label for='Angular16' class="option">16:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular17' onclick="salvarHorario('17:00')">
+                        <label for='Angular17' class="option">17:00</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='checkbox' name='language' id='Angular18' onclick="salvarHorario('18:00')">
+                        <label for='Angular18' class="option">18:00</label>
+                    </div>
+
+
+
+                    <button type="button" id="btnPronto" class="btn btn-primary">Pronto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup para informar que é necessário selecionar ao menos um horário -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="fecharPopup()">&times;</span>
+            <p>Selecione ao menos um horário antes de prosseguir.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4 menu">
+        <div class="col-md-12 text-center">
+            <a href="/menu_principal" class="btn btn-primary menu">Menu Principal</a>
+        </div>
+    </div>
+
+
+    <script>
+        // Função para verificar se ao menos um checkbox está selecionado
+        function verificarSelecao() {
+            const checkboxes = document.querySelectorAll('input[name="language"]');
+            const algumaSelecionada = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+            return algumaSelecionada;
+        }
+
+        // Função para exibir o popup
+        function exibirPopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'block';
+        }
+
+        // Função para fechar o popup
+        function fecharPopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        }
+
+        // Adiciona um evento de clique ao botão "Pronto"
+        document.getElementById('btnPronto').addEventListener('click', function() {
+            if (!verificarSelecao()) {
+                exibirPopup();
+            } else {
+                // Se ao menos um checkbox estiver selecionado, envia o formulário
+                document.getElementById('horariosForm').submit();
+            }
+        });
+
+
+
+        // Função para salvar os horários selecionados
+    function salvarHorario(horario) {
+        // Verifica se já existe um array de horários no armazenamento local
+        let horariosSelecionados = JSON.parse(localStorage.getItem('horariosSelecionados')) || [];
+        
+        // Adiciona o novo horário à lista de horários selecionados
+        horariosSelecionados.push(horario);
+        
+        // Salva a lista atualizada de horários no armazenamento local
+        localStorage.setItem('horariosSelecionados', JSON.stringify(horariosSelecionados));
+
+    }
+
+    const name = localStorage.getItem('username');
+        document.getElementById('name').textContent = name;
+    </script>
+
+
+</body>
+</html>

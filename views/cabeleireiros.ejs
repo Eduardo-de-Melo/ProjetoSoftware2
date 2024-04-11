@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabeleireiros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles_cabel.css">
+    <script src="public\scripts.js"></script>
+</head>
+<body>
+    <div class="row align-items-center">
+        <div class="col-6">
+            <!-- Foto do usuário e nome -->
+            <div class="d-flex align-items-center">
+                <div class="user-photo"></div>
+                <!-- Nome de usuário -->
+                <div class="user-name ml-2"> <a href="/informacoes" class="nome_link"><span id="name"></span> </a></div>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <!-- Botão de configurações -->
+            <a href="/configuracoes" class="btn btn-outline-secondary settings">Configurações</a>
+        </div>
+    </div>
+        <!-- Linha separadora -->
+        <hr>
+        <!-- Parte principal da página -->
+        <div class="titulo">Cabeleireiros disponíveis</div>
+        <div class="row justify-content-center">
+            <div>
+                <!-- Retângulos dos dias da semana -->
+                <a href="/horarios" class="cabel-link" onclick="salvarCabeleireiro('Jefferson')">
+                    <div class="cabel-rectangle">
+                        <div class="circle"></div>
+                        <span class="cabel-name">Jefferson</span>
+                    </div>
+                </a>
+                <a href="/horarios" class="cabel-link" onclick="salvarCabeleireiro('Rayssa')">
+                    <div class="cabel-rectangle">
+                        <div class="circle"></div>
+                        <span class="cabel-name">Rayssa</span>
+                    </div>
+                </a>
+                <a href="/horarios" class="cabel-link" onclick="salvarCabeleireiro('Gabriela')">
+                    <div class="cabel-rectangle">
+                        <span class="cabel-name">Gabriela</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4 menu">
+        <div class="col-md-12 text-center">
+            <a href="/menu_principal" class="btn btn-primary menu">Menu Principal</a>
+        </div>
+    </div>
+
+
+    <script>
+        function salvarCabeleireiro(cabeleireiro) {
+            localStorage.setItem('cabeleireiroEscolhido', cabeleireiro);
+        }
+
+        const name = localStorage.getItem('username');
+        document.getElementById('name').textContent = name;
+    </script>
+</body>
+</html>

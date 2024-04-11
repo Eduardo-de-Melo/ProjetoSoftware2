@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles_pagamento.css">
+    <script src="public\scripts.js"></script>
+</head>
+<body>
+    <div class="row align-items-center">
+        <div class="col-6">
+            <!-- Foto do usuário e nome -->
+            <div class="d-flex align-items-center">
+                <div class="user-photo"></div>
+                <!-- Nome de usuário -->
+                <<div class="user-name ml-2"> <a href="/informacoes" class="nome_link"><span id="name"></span> </a></div>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <!-- Botão de configurações -->
+            <a href="/configuracoes" class="btn btn-outline-secondary settings">Configurações</a>
+        </div>
+    </div>
+        <!-- Linha separadora -->
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <div class="titulo">Pagamento</div>
+            </div>
+            <form action="/forma_pagamento" id="horariosForm">
+                <div class="row justify-content-center">
+                    <!-- Radio buttons -->
+                    <div class="col-md-12 text-center">
+                        <input type='radio' name='language' id='AngularPix'>
+                        <label for='AngularPix' class="option">Pix</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='radio' name='language' id='AngularDin'>
+                        <label for='AngularDin' class="option">dinheiro</label>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <input type='radio' name='language' id='AngularCart'>
+                        <label for='AngularCart' class="option">Cartão</label>
+                    </div>
+
+                    <button type="button" id="btnPronto" class="btn btn-primary">Pronto</button>
+                </div>
+            </form>
+        </div>
+
+
+
+
+        <div class="row justify-content-center mt-4 menu">
+            <div class="col-md-12 text-center">
+                <a href="/menu_principal" class="btn btn-primary menu">Menu Principal</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Popup para informar que é necessário selecionar um pagamento -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="fecharPopup()">&times;</span>
+            <p id="popupContent">Selecione uma forma de pagamento</p>
+            <button id="btnOK" class="btn btn-primary">OK</button>
+        </div>
+    </div>
+
+    <!-- Popup com as informações do Pix -->
+    <div id="popupPix" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="fecharPopupPix()">&times;</span>
+            <p id="popupContentPix">Pix.\n Forma: celular.\n Numero:11234513.\n Nome: lorem ipsum</p>
+            <button id="btnOKPix" class="btn btn-primary">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para exibir o popup
+        function exibirPopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'block';
+        }
+
+        // Função para fechar o popup
+        function fecharPopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        }
+
+        // Função para exibir o popup do Pix
+        function exibirPopupPix() {
+            const popup = document.getElementById('popupPix');
+            popup.style.display = 'block';
+        }
+
+        // Função para fechar o popup do Pix
+        function fecharPopupPix() {
+            const popup = document.getElementById('popupPix');
+            popup.style.display = 'none';
+        }
+
+        // Função para redirecionar para o menu principal
+        function redirecionarParaMenuPrincipal() {
+            window.location.href = "/menu_principal";
+        }
+
+        // Adiciona um evento de clique ao botão "Pronto"
+        document.getElementById('btnPronto').addEventListener('click', function() {
+            // Verifica se alguma opção foi selecionada
+            const radioButtons = document.querySelectorAll('input[name="language"]');
+            let algumaSelecionada = false;
+            radioButtons.forEach((radioButton) => {
+                if (radioButton.checked) {
+                    algumaSelecionada = true;
+                }
+            });
+
+            if (!algumaSelecionada) {
+                exibirPopup();
+            } else {
+                // Se uma opção foi selecionada, verifica se é Pix
+                const checkboxPix = document.getElementById('AngularPix');
+                if (checkboxPix.checked) {
+                    exibirPopupPix();
+                } else {
+                    // Se não for Pix, redireciona para o menu principal
+                    redirecionarParaMenuPrincipal();
+                }
+            }
+        });
+
+        // Adiciona um evento de clique ao botão "OK" no popup
+        document.getElementById('btnOK').addEventListener('click', function() {
+            fecharPopup();
+        });
+
+        // Adiciona um evento de clique ao botão "OK" no popup do Pix
+        document.getElementById('btnOKPix').addEventListener('click', function() {
+            redirecionarParaMenuPrincipal();
+        });
+
+        
+
+    </script>
+</body>
+</html>

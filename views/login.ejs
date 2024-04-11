@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <form id="loginForm" action="/menu_principal" method="GET">
+
+            <img src="/logo.png" alt="Logo da Empresa" class="logo">
+
+            <div class="form-group">
+                <div class="form-label">
+                    <label for="name" class="label-text">Nome</label>
+                </div>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <div class="form-label">
+                    <label for="phone" class="label-text">Telefone</label>
+                </div>
+                <input type="text" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <button type="button" onclick="submitForm()" class="btn btn-login">Logar</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-register">Registrar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+
+            // Verifica se os campos estão preenchidos
+            if (name.trim() !== "" && phone.trim() !== "") {
+                // Salva os valores do usuário no localStorage
+                localStorage.setItem('username', name);
+                localStorage.setItem('phone', phone);
+                document.getElementById("loginForm").submit();
+            } else {
+                alert("Por favor, preencha todos os campos!");
+            }
+        }
+    </script>
+
+</body>
+</html>

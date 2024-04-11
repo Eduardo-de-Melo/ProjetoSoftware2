@@ -1,0 +1,63 @@
+.header {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.config-rectangle {
+    width: 350px; /* Ajuste conforme necessário */
+    height: 80px; /* Ajuste conforme necessário */
+    background-color: #873286; /* Cor de fundo dos retângulos */
+    border: 1px solid #ccc; /* Borda dos retângulos */
+    text-align: center; /* Centraliza o texto */
+    line-height: 80px; /* Centraliza verticalmente o texto */
+    margin-top: 20px;
+    margin-bottom: 10px; /* Espaçamento entre os retângulos */
+    position: relative; /* Permite posicionamento relativo */
+}
+
+/* Estilos para o texto dentro dos retângulos */
+.config-name {
+    position: absolute; /* Permite posicionamento absoluto */
+    top: 50%; /* Alinha o texto verticalmente ao centro */
+    left: 50%; /* Alinha o texto horizontalmente ao centro */
+    transform: translate(-50%, -50%); /* Move o texto para o centro */
+    color: azure;
+    font-family: palatino, serif;
+    font-size: 20px;
+}
+
+body {
+    background-color: #d3bbff;
+}
+.btn-secondary{
+    background-color: #af32bf;
+    position: absolute;
+    left: 10px;
+}
+
+.bi-arrow-return-left {
+    width: 24px; /* Define a largura do ícone */
+    height: 24px; /* Define a altura do ícone */
+    fill: #f8f5ff; /* Define a cor de preenchimento do ícone */
+}
+
+header {
+    display: flex; /* Define o display como flexível */
+    align-items: center; /* Alinha os elementos verticalmente */
+}
+
+.voltar{
+    text-decoration:none;
+    font-size: 20px;
+    margin-top: 6px;
+    margin-left: 65px;
+    font-family: palatino, serif;
+    color: azure;
+    position: absolute;
+    
+}
+.titulo{
+    position:static;
+    margin-left: -20px;
+}

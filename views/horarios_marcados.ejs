@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios Marcados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles_horarios_marcados.css">
+</head>
+<body>
+    <div class="row align-items-center">
+        <div class="col-6">
+            <!-- Foto do usuário e nome -->
+            <div class="d-flex align-items-center">
+                <div class="user-photo"></div>
+                <!-- Nome de usuário -->
+                <div class="user-name ml-2"><a href="/informacoes" class="nome_link"> Nome do Usuário </a></div>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <!-- Botão de configurações -->
+            <a href="/configuracoes" class="btn btn-outline-secondary settings">Configurações</a>
+        </div>
+    </div>
+        <!-- Linha separadora -->
+        <hr>
+        <!-- Informações sobre o agendamento -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="titulo">Informações do Agendamento</h2>
+                <p class ="texto">Dia da Semana: <span id="diaEscolhido"></span></p>
+                <p class ="texto">Cabeleireiro: <span id="cabeleireiroEscolhido"></span></p>
+                <h3 class="titulo">Horários:</h3>
+                    <ul id="listaHorarios" class="horas"></ul>
+            </div>
+        </div>
+        <!-- Botão para cancelar o agendamento -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6 text-center">
+                <button id="btnCancelar" class="btn btn-danger">Cancelar Agendamento</button>
+            </div>
+        </div>
+        <!-- Botão para retornar ao menu principal -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6 text-center">
+                <a href="/menu_principal" class="btn btn-primary">Voltar ao Menu Principal</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Recuperar as informações salvas no localStorage
+        const diaEscolhido = localStorage.getItem('diaEscolhido');
+        const cabeleireiroEscolhido = localStorage.getItem('cabeleireiroEscolhido');
+
+        // Exibir as informações na tela
+        document.getElementById('diaEscolhido').textContent = diaEscolhido;
+        document.getElementById('cabeleireiroEscolhido').textContent = cabeleireiroEscolhido;
+
+        // Adicionar evento de clique ao botão de cancelar
+        document.getElementById('btnCancelar').addEventListener('click', function() {
+            // Limpar os dados salvos no localStorage
+            localStorage.removeItem('diaEscolhido');
+            localStorage.removeItem('cabeleireiroEscolhido');
+            localStorage.removeItem('horariosSelecionados');
+            // Redirecionar para a página de menu principal
+            window.location.href = "/menu_principal";
+        });
+
+
+        // Recuperar os horários selecionados salvos no armazenamento local
+        const horariosSelecionados = JSON.parse(localStorage.getItem('horariosSelecionados')) || [];
+
+        // Exibir os horários na tela
+        const listaHorarios = document.getElementById('listaHorarios');
+        horariosSelecionados.forEach(function(horario) {
+            const item = document.createElement('li');
+            item.textContent = horario;
+            listaHorarios.appendChild(item);
+        });
+
+        const name = localStorage.getItem('username');
+        document.getElementById('name').textContent = name;
+    </script>
+</body>
+</html>

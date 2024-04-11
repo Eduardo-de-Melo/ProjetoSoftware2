@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles_config.css">
+    <i class="bi bi-arrow-return-left"></i>
+    <script src="public\scripts.js"></script>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <div class="header">
+        <!-- Ícone do retorno -->
+        <div>
+            <button type="button" class="btn btn-secondary float-left">
+                <a href="/menu_principal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+                </svg>
+                </a>
+            </button>
+            <div class="voltar float-left"><a href="/menu_principal" class="nome_link"> voltar </a></div>
+        </div>
+        <h2 class="titulo">Configurações</h2>
+    </div>
+    <!-- Linha separadora -->
+    <hr>
+    <!-- Parte principal da página -->
+    <div class="row justify-content-center">
+        <div>
+            <!-- Configuracoes -->
+            <a href="/informacoes" class="config-link">
+                <div class="config-rectangle">
+                    <div class="circle"></div>
+                    <span class="config-name">Informacoes</span>
+                </div>
+            </a>
+            <a href="/horarios_marcados" class="config-link">
+                <div class="config-rectangle">
+                    <div class="circle"></div>
+                    <span class="config-name">Horarios Marcados</span>
+                </div>
+            </a>
+            <a href="/login" class="config-link">
+                <div class="config-rectangle">
+                    <span class="config-name">Sair</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
